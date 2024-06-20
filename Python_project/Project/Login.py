@@ -6,6 +6,7 @@ import finance
 class Main:
     def __init__(self, master):
         self.master = master
+        self.master.configure(bg='lightblue')  # Изменение цвета фона окна
         self.username = StringVar()
         self.password = StringVar()
 
@@ -17,21 +18,21 @@ class Main:
         )
         self.cursor = self.db.cursor()
 
-        self.head = Label(self.master, text='Авторизация', font=('Helvetica', 35), pady=10)
+        self.head = Label(self.master, text='Авторизация', font=('Arial', 35, 'bold'), pady=20, bg='lightblue')
         self.head.pack()
 
-        self.logf = Frame(self.master, padx=18, pady=10)
+        self.logf = Frame(self.master, padx=30, pady=20, bg='white', relief='raised', borderwidth=3)
         self.widgets()
 
     def widgets(self):
-        Label(self.logf, text='Username:', font=('Helvetica', 20), pady=5, padx=5).grid(sticky=W)
-        Entry(self.logf, textvariable=self.username, bd=5, font=('Helvetica', 15)).grid(row=0, column=1)
+        Label(self.logf, text='Username:', font=('Arial', 20), pady=10, padx=10, bg='white').grid(sticky=W)
+        Entry(self.logf, textvariable=self.username, bd=5, font=('Arial', 15)).grid(row=0, column=1)
 
-        Label(self.logf, text='Password:', font=('Helvetica', 20), pady=5, padx=5).grid(sticky=W)
-        Entry(self.logf, textvariable=self.password, bd=5, font=('Helvetica', 15), show='*').grid(row=1, column=1)
+        Label(self.logf, text='Password:', font=('Arial', 20), pady=10, padx=10, bg='white').grid(sticky=W)
+        Entry(self.logf, textvariable=self.password, bd=5, font=('Arial', 15), show='*').grid(row=1, column=1)
 
-        Button(self.logf, text='Login', bd=3, font=('Helvetica', 15), padx=5, pady=5, command=self.login).grid(row=2, column=0)
-        Button(self.logf, text='Create Account', bd=3, font=('Helvetica', 15), padx=5, pady=5, command=self.new_user).grid(row=2, column=1)
+        Button(self.logf, text='Login', bd=3, font=('Arial', 15), padx=10, pady=10, command=self.login).grid(row=2, column=0)
+        Button(self.logf, text='Create Account', bd=3, font=('Arial', 15), padx=10, pady=10, command=self.new_user).grid(row=2, column=1)
 
         self.logf.pack()
 
